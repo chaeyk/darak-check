@@ -1,6 +1,8 @@
 name: Check Room
 
 on:
+  schedule:
+  - cron: '*/10 0-17 * * *'
   workflow_dispatch: {}
 
 jobs:
