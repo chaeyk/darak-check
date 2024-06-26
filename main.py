@@ -8,9 +8,16 @@ import os
 def send_message(message: str):
   print(message)
 
-  url = f'https://api.telegram.org/bot{os.getenv("TLG_BOTTOKEN")}/sendMessage'
+  bottoken = os.getenv('TLG_BOTTOKEN')
+  chatid = os.getenv('TLG_CHATID')
+
+  if not bottoken or not chatid:
+    print('Telegram bot token or chat id is not set.')
+    return
+
+  url = f'https://api.telegram.org/bot{bottoken}/sendMessage'
   payload = {
-    'chat_id': os.getenv('TLG_CHATID'),
+    'chat_id': chatid,
     'text': message,
   }
 
