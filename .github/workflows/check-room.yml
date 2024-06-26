@@ -1,0 +1,20 @@
+name: Check Room
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  check-room:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Prepare python
+      run: |
+        apt-get update
+        apt-get install -y python3
+        pip3 install -r requirements.txt
+    - name: Run check-room
+      run: python3 main.py
+      env:
+        TLG_BOTTOKEN: ${{ secrets.TLG_BOTTOKEN }}
+        TLG_CHATID: ${{ secrets.TLG_CHATID }}
+      
