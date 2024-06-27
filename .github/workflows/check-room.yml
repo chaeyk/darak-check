@@ -22,4 +22,13 @@ jobs:
       env:
         TLG_BOTTOKEN: ${{ secrets.TLG_BOTTOKEN }}
         TLG_CHATID: ${{ secrets.TLG_CHATID }}
+    - name: Send Telegram notification
+      if: failure()
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TLG_CHATID }}
+        token: ${{ secrets.TLG_BOTTOKEN }}
+        message: |
+          다락휴 확인 실패!
+          이벤트: ${{ github.event_name }}
       
