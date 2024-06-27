@@ -33,5 +33,7 @@ result = resp.json()['result']
 
 if len(result) == 0:
   print('No rooms available.')
+  if os.getenv('DEBUG'):
+    send_message('인천공항 숙소가 없다.')
 else:
   send_message('인천공항 숙소가 생겼다!')
