@@ -1,0 +1,14 @@
+stages:
+- run
+
+run:
+  stage: run
+  tags:
+  - minecraft
+  rules:
+  - when: manual
+  image:
+    name: python:3.10-slim
+  script:
+  - pip install -r requirements.txt
+  - python main.py
