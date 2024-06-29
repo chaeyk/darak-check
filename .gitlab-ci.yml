@@ -4,7 +4,7 @@ stages:
 run:
   stage: run
   tags:
-  - minecraft
+  - gitlab-org-docker
   rules:
   - if: $CI_PIPELINE_SOURCE == "schedule"
   - if: $CI_PIPELINE_SOURCE == "web"
