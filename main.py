@@ -36,4 +36,5 @@ if len(result) == 0:
   if os.getenv('DEBUG'):
     send_message('인천공항 숙소가 없다.')
 else:
+  print('Bingo')
   send_message('인천공항 숙소가 생겼다!')
