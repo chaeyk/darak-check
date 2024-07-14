@@ -10,7 +10,7 @@ fi
 while true; do
     output=$(python main.py)
 
-    if [ "$output" =~ "Bingo" ]; then
+    if [[ "$output" =~ "Bingo" ]]; then
         echo "Bingo"
         break
     fi
